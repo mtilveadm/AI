@@ -85,7 +85,7 @@ guardrail_country_name_check_agent = Agent(
     - "Pick the best news" → is_name_in_message: False, name: ""
     - "Get news about the country" → is_name_in_message: False, name: ""
     
-    Only return True if you find a specific country name, not general terms like 'country' or 'news'.""",
+    Only return True if you find a specific country name, ignore the string 'country' itself only focus on country name.""",
     output_type=CountryNameCheck,
     model="gpt-4o-mini"
 )
@@ -107,7 +107,7 @@ agent_selector = Agent(
     input_guardrails=[guardrail_country_name_check]
 )
 
-message = "Select best news for country USA"
+message = "Select best news"
 
 async def main():
     with trace("Select Best News From Main Function"):        
